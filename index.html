@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telegram WebApp</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Telegram WebApp</h1>
+        <p>This is a simple web page for your Telegram bot's webapp.</p>
+        <button id="telegramButton">Send Message to Bot</button>
+    </div>
+
+    
+    <script>
+        
+        document.addEventListener("DOMContentLoaded", function () {
+            const telegramButton = document.getElementById("telegramButton");
+
+            // Verificăm dacă biblioteca Telegram WebApp este disponibilă
+            if (window.Telegram.WebApp) {
+                console.log("Telegram WebApp is available.");
+                telegramButton.addEventListener("click", function () {
+                    // Trimitem un mesaj la bot
+                    Telegram.WebApp.sendData("Hello from the WebApp!");
+                });
+            } else {
+                console.log("Telegram WebApp is not available.");
+            }
+        });
+        
+        
+    </script>
+</body>
+</html>
